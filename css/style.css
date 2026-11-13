@@ -54,13 +54,16 @@ body {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #06090d;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #192331;
   border-radius: 9999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-lime);
 }
@@ -75,9 +78,11 @@ body {
 .glow-lime {
   box-shadow: var(--glow-lime);
 }
+
 .glow-cyan {
   box-shadow: var(--glow-cyan);
 }
+
 .glow-emerald {
   box-shadow: var(--glow-emerald);
 }
@@ -116,6 +121,7 @@ body {
 .glass-card-interactive {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .glass-card-interactive:hover {
   transform: translateY(-4px);
   border-color: var(--border-card-glow);
@@ -154,6 +160,7 @@ body {
   cursor: pointer;
   user-select: none;
 }
+
 .set-pill.completed {
   background: #76e000 !important;
   color: #051400 !important;
@@ -189,6 +196,7 @@ body {
 .modal-overlay {
   transition: opacity 0.25s ease-out;
 }
+
 .modal-content {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -207,6 +215,7 @@ body {
 .water-glass-btn {
   transition: all 0.2s ease;
 }
+
 .water-glass-btn.filled {
   background: #65a30d;
   color: #ffffff;
@@ -221,10 +230,12 @@ body {
     stroke-dashoffset: 600;
     opacity: 0.4;
   }
+
   50% {
     stroke-dashoffset: 0;
     opacity: 1;
   }
+
   100% {
     stroke-dashoffset: -600;
     opacity: 0.4;
@@ -249,16 +260,26 @@ body {
     background: #ffffff !important;
     color: #000000 !important;
   }
-  header, footer, .no-print, .floating-timer, #workout-timer-widget, .calc-section {
+
+  header,
+  footer,
+  .no-print,
+  .floating-timer,
+  #workout-timer-widget,
+  .calc-section {
     display: none !important;
   }
+
   .glass-card {
     background: #ffffff !important;
     color: #000000 !important;
     border: 1px solid #cccccc !important;
     box-shadow: none !important;
   }
-  .text-gradient-lime, .text-gradient-cyan, .text-gradient-fire {
+
+  .text-gradient-lime,
+  .text-gradient-cyan,
+  .text-gradient-fire {
     color: #000000 !important;
     -webkit-text-fill-color: #000000 !important;
   }

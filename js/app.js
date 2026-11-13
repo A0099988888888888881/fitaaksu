@@ -3,6 +3,86 @@
  * Interactive Workout Tracker, Day 1-7 Engine, Diet Navigator, Rest Timer & Calculators
  */
 
+/* ==========================================================================
+   EXERCISE IMAGE LOOKUP TABLE
+   Maps each exercise imageType → animated GIF demo URL
+   ========================================================================== */
+const EXERCISE_IMAGES = {
+  // ── DAY 1: Chest + Triceps ──────────────────────────────────────────────
+  "bench-press":        "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif",
+  "incline-press":      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Barbell-Bench-Press.gif",
+  "dips":               "https://fitnessprogramer.com/wp-content/uploads/2021/02/Chest-Dip.gif",
+  "cable-fly":          "https://fitnessprogramer.com/wp-content/uploads/2021/02/Cable-Fly.gif",
+  "skull-crushers":     "https://fitnessprogramer.com/wp-content/uploads/2021/02/Skull-Crusher.gif",
+  "rope-pushdown":      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Pushdown.gif",
+  "overhead-triceps":   "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Overhead-Triceps-Extension.gif",
+  "pushups":            "https://fitnessprogramer.com/wp-content/uploads/2021/02/Push-Up.gif",
+
+  // ── DAY 2: Back + Biceps ────────────────────────────────────────────────
+  "deadlift":           "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Deadlift.gif",
+  "barbell-row":        "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bent-Over-Row.gif",
+  "lat-pulldown":       "https://fitnessprogramer.com/wp-content/uploads/2021/02/Lat-Pulldown.gif",
+  "seated-row":         "https://fitnessprogramer.com/wp-content/uploads/2021/02/Seated-Cable-Row.gif",
+  "face-pull":          "https://fitnessprogramer.com/wp-content/uploads/2021/02/Face-Pull.gif",
+  "bicep-curl":         "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Curl.gif",
+  "hammer-curl":        "https://fitnessprogramer.com/wp-content/uploads/2021/02/Hammer-Curl.gif",
+  "preacher-curl":      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Preacher-Curl.gif",
+
+  // ── DAY 3: Legs ─────────────────────────────────────────────────────────
+  "barbell-squat":      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Squat.gif",
+  "rdl":                "https://fitnessprogramer.com/wp-content/uploads/2021/02/Romanian-Deadlift.gif",
+  "leg-press":          "https://fitnessprogramer.com/wp-content/uploads/2021/02/Leg-Press.gif",
+  "bulgarian-split-squat": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Bulgarian-Split-Squat.gif",
+  "leg-curl":           "https://fitnessprogramer.com/wp-content/uploads/2021/02/Lying-Leg-Curl.gif",
+  "leg-extension":      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Leg-Extension.gif",
+  "standing-calf":      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Standing-Calf-Raise.gif",
+  "seated-calf":        "https://fitnessprogramer.com/wp-content/uploads/2021/02/Seated-Calf-Raise.gif",
+
+  // ── DAY 4: Shoulders + Abs ──────────────────────────────────────────────
+  "overhead-press":     "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Standing-Military-Press.gif",
+  "lateral-raise":      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Lateral-Raise.gif",
+  "arnold-press":       "https://fitnessprogramer.com/wp-content/uploads/2021/02/Arnold-Press.gif",
+  "rear-delt-fly":      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Rear-Delt-Fly.gif",
+  "shrugs":             "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Shrug.gif",
+  "hanging-leg-raise":  "https://fitnessprogramer.com/wp-content/uploads/2021/02/Hanging-Leg-Raise.gif",
+  "cable-crunch":       "https://fitnessprogramer.com/wp-content/uploads/2021/02/Cable-Crunch.gif",
+  "plank":              "https://fitnessprogramer.com/wp-content/uploads/2021/02/Plank.gif",
+
+  // ── DAY 5: Full Body HIIT ───────────────────────────────────────────────
+  "kettlebell-swing":   "https://fitnessprogramer.com/wp-content/uploads/2021/02/Kettlebell-Swing.gif",
+  "thrusters":          "https://fitnessprogramer.com/wp-content/uploads/2021/06/Barbell-Thruster.gif",
+  "pullups":            "https://fitnessprogramer.com/wp-content/uploads/2021/02/Pull-up.gif",
+  "renegade-row":       "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Renegade-Row.gif",
+  "walking-lunges":     "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Walking-Lunge.gif",
+  "burpee":             "https://fitnessprogramer.com/wp-content/uploads/2021/02/Burpee.gif",
+  "farmers-walk":       "https://fitnessprogramer.com/wp-content/uploads/2021/02/Farmers-Walk.gif",
+  "mountain-climber":   "https://fitnessprogramer.com/wp-content/uploads/2021/02/Mountain-Climber.gif",
+
+  // ── DAY 6: Arms + Abs Specialization ────────────────────────────────────
+  "close-grip-bench":       "https://fitnessprogramer.com/wp-content/uploads/2021/02/Close-Grip-Bench-Press.gif",
+  "incline-curl":            "https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Dumbbell-Curl.gif",
+  "overhead-cable-tricep":   "https://fitnessprogramer.com/wp-content/uploads/2021/02/Cable-Overhead-Triceps-Extension.gif",
+  "reverse-curl":            "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Reverse-Curl.gif",
+  "ab-wheel":                "https://fitnessprogramer.com/wp-content/uploads/2021/02/Ab-Wheel-Rollout.gif",
+  "russian-twist":           "https://fitnessprogramer.com/wp-content/uploads/2021/02/Russian-Twist.gif",
+  "hollow-body":             "https://fitnessprogramer.com/wp-content/uploads/2021/02/Hollow-Body-Hold.gif",
+
+  // ── DAY 7: Active Recovery ───────────────────────────────────────────────
+  "wgs":               "https://fitnessprogramer.com/wp-content/uploads/2021/02/World-Greatest-Stretch.gif",
+  "foam-roller":       "https://fitnessprogramer.com/wp-content/uploads/2021/02/Foam-Roller-Thoracic-Spine.gif",
+  "couch-stretch":     "https://fitnessprogramer.com/wp-content/uploads/2021/02/Kneeling-Hip-Flexor-Stretch.gif",
+  "hip-9090":          "https://fitnessprogramer.com/wp-content/uploads/2021/02/90-90-Hip-Rotation.gif",
+  "cat-cow":           "https://fitnessprogramer.com/wp-content/uploads/2021/02/Cat-Cow-Stretch.gif",
+  "band-pullapart":    "https://fitnessprogramer.com/wp-content/uploads/2021/02/Band-Pull-Apart.gif",
+  "liss-walk":         "https://fitnessprogramer.com/wp-content/uploads/2021/02/Walking.gif",
+  "breathing":         "https://fitnessprogramer.com/wp-content/uploads/2021/02/Diaphragmatic-Breathing.gif",
+};
+
+/** Returns image URL for an exercise, with a gradient SVG fallback */
+function getExerciseImg(imageType) {
+  return EXERCISE_IMAGES[imageType] || null;
+}
+
 // Application State
 const state = {
   currentDay: 1,
@@ -529,9 +609,18 @@ function renderDayWorkout(dayNumber) {
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <!-- Exercise Info -->
           <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#76e000]/20 to-emerald-600/20 border border-[#76e000]/30 flex items-center justify-center text-[#76e000] font-extrabold text-lg shrink-0">
-              #${idx + 1}
-            </div>
+            ${(() => {
+              const imgUrl = getExerciseImg(ex.imageType);
+              if (imgUrl) {
+                return `<div class="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border border-[#76e000]/30 shrink-0 bg-slate-900 relative">
+                  <img src="${imgUrl}" alt="${ex.name}" class="w-full h-full object-cover"
+                    onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('flex','items-center','justify-center');this.parentElement.innerHTML='<span class=\\'text-[#76e000] font-extrabold text-lg\\'>#${idx + 1}</span>'">
+                  <span class="absolute bottom-1 right-1 bg-slate-950/70 text-[#76e000] text-[9px] font-bold font-mono px-1.5 py-0.5 rounded">#${idx + 1}</span>
+                </div>`;
+              } else {
+                return `<div class="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-gradient-to-br from-[#76e000]/20 to-emerald-600/20 border border-[#76e000]/30 flex items-center justify-center text-[#76e000] font-extrabold text-lg shrink-0">#${idx + 1}</div>`;
+              }
+            })()}
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-1">
                 <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#76e000]/10 text-[#76e000] border border-[#76e000]/30">
@@ -822,8 +911,22 @@ function renderExerciseLibrary() {
   }
 
   container.innerHTML = filtered.map(ex => `
-    <div class="glass-card glass-card-interactive rounded-2xl p-5 border border-slate-800 flex flex-col justify-between">
-      <div>
+    <div class="glass-card glass-card-interactive rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between">
+      <!-- Exercise GIF Preview -->
+      ${(() => {
+        const imgUrl = getExerciseImg(ex.imageType);
+        if (imgUrl) {
+          return `<div class="w-full h-40 overflow-hidden bg-slate-900 relative">
+            <img src="${imgUrl}" alt="${ex.name}" class="w-full h-full object-cover"
+              onerror="this.onerror=null;this.parentElement.style.background='linear-gradient(135deg,rgba(118,224,0,0.15),rgba(16,185,129,0.1))';this.remove()">
+          </div>`;
+        } else {
+          return `<div class="w-full h-40 bg-gradient-to-br from-[#76e000]/10 to-emerald-600/10 flex items-center justify-center">
+            <i class="fa-solid fa-dumbbell text-4xl text-[#76e000]/40"></i>
+          </div>`;
+        }
+      })()}
+      <div class="p-5">
         <div class="flex items-center justify-between gap-2 mb-2">
           <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
             DAY ${ex.dayNumber}
@@ -837,7 +940,7 @@ function renderExerciseLibrary() {
         <p class="text-slate-400 text-xs mt-2 line-clamp-2">${ex.description}</p>
       </div>
 
-      <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+      <div class="px-5 pb-5 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-auto">
         <div class="text-xs text-slate-400 font-mono">
           <span class="text-white font-bold">${ex.sets}</span> sets × <span class="text-white font-bold">${ex.reps.split(' ')[0]}</span>
         </div>
@@ -865,6 +968,19 @@ function openExerciseModal(exerciseId) {
   if (!modal || !modalContent) return;
 
   modalContent.innerHTML = `
+    <!-- Exercise Demo Image -->
+    ${(() => {
+      const imgUrl = getExerciseImg(ex.imageType);
+      if (imgUrl) {
+        return `<div class="w-full h-56 md:h-72 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 mb-5 relative">
+          <img src="${imgUrl}" alt="${ex.name} demonstration" class="w-full h-full object-contain bg-slate-900"
+            onerror="this.onerror=null;this.parentElement.style.display='none'">
+          <div class="absolute bottom-3 right-3 bg-slate-950/80 px-3 py-1 rounded-lg text-[10px] font-mono text-slate-400">Live Demo</div>
+        </div>`;
+      }
+      return '';
+    })()}
+
     <!-- Modal Header -->
     <div class="flex items-start justify-between gap-4 pb-4 border-b border-slate-800">
       <div>

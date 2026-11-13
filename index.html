@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fitaasu - Fit Today • Stronger Tomorrow | 7-Day Fitness & Nutrition Architecture</title>
-  <meta name="description" content="Fitaasu: Fit Today • Stronger Tomorrow. Complete Day 1 to 7 scientific workout routine, 50+ detailed exercises with coaching cues, goal-oriented diet plans, and interactive macro calculators.">
-  
+  <meta name="description"
+    content="Fitaasu: Fit Today • Stronger Tomorrow. Complete Day 1 to 7 scientific workout routine, 50+ detailed exercises with coaching cues, goal-oriented diet plans, and interactive macro calculators.">
+
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="assets/fitaasu-logo.jpg">
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&display=swap"
+    rel="stylesheet">
+
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -48,18 +52,22 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-[#070a0e] text-slate-100 min-h-screen selection:bg-[#76e000] selection:text-slate-950 bg-grid-pattern relative">
+
+<body
+  class="bg-[#070a0e] text-slate-100 min-h-screen selection:bg-[#76e000] selection:text-slate-950 bg-grid-pattern relative">
 
   <!-- =========================================================================
        Navigation Header
        ========================================================================= -->
   <header class="sticky top-0 z-40 bg-[#070a0e]/90 backdrop-blur-xl border-b border-slate-800/80 transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
+
       <!-- Official Logo Branding -->
       <a href="#hero" class="flex items-center gap-3.5 group">
-        <div class="relative w-12 h-12 rounded-2xl overflow-hidden border border-[#76e000]/40 p-0.5 shadow-lg shadow-[#76e000]/20 group-hover:shadow-[#76e000]/40 group-hover:border-[#76e000] transition-all duration-300">
-          <img src="assets/fitaasu-logo.jpg" alt="Fitaasu Official Logo" class="w-full h-full object-cover rounded-[14px]">
+        <div
+          class="relative w-12 h-12 rounded-2xl overflow-hidden border border-[#76e000]/40 p-0.5 shadow-lg shadow-[#76e000]/20 group-hover:shadow-[#76e000]/40 group-hover:border-[#76e000] transition-all duration-300">
+          <img src="assets/fitaasu-logo.jpg" alt="Fitaasu Official Logo"
+            class="w-full h-full object-cover rounded-[14px]">
         </div>
         <div class="flex flex-col">
           <div class="flex items-baseline gap-0.5">
@@ -67,37 +75,45 @@
             <span class="text-2xl font-black italic tracking-tight text-[#76e000] font-sans">aasu</span>
             <span class="w-2 h-2 rounded-full bg-[#76e000] ml-1.5 animate-pulse"></span>
           </div>
-          <span class="text-[9px] tracking-widest uppercase font-mono text-slate-400 font-bold -mt-0.5">FIT TODAY • STRONGER TOMORROW</span>
+          <span class="text-[9px] tracking-widest uppercase font-mono text-slate-400 font-bold -mt-0.5">FIT TODAY •
+            STRONGER TOMORROW</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Menu -->
       <nav class="hidden md:flex items-center gap-1 lg:gap-2">
-        <a href="#transformation-section" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
+        <a href="#transformation-section"
+          class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
           <i class="fa-solid fa-fire text-[#76e000] text-xs mr-1.5"></i> 30kg Transform
         </a>
-        <a href="#workout-section" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
+        <a href="#workout-section"
+          class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
           <i class="fa-solid fa-calendar-week text-[#76e000] text-xs mr-1.5"></i> 7-Day Split
         </a>
-        <a href="#exercise-library" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
+        <a href="#exercise-library"
+          class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
           <i class="fa-solid fa-dumbbell text-emerald-400 text-xs mr-1.5"></i> Exercise Directory
         </a>
-        <a href="#diet-section" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
+        <a href="#diet-section"
+          class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
           <i class="fa-solid fa-utensils text-amber-400 text-xs mr-1.5"></i> Diet & Nutrition
         </a>
-        <a href="#calculator-section" class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
+        <a href="#calculator-section"
+          class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
           <i class="fa-solid fa-calculator text-cyan-400 text-xs mr-1.5"></i> Calculators
         </a>
       </nav>
 
       <!-- Action Button & Mobile Menu Toggle -->
       <div class="flex items-center gap-3">
-        <a href="#workout-section" class="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#76e000] to-[#55a000] text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-[#76e000]/25 hover:shadow-[#76e000]/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
+        <a href="#workout-section"
+          class="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#76e000] to-[#55a000] text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-[#76e000]/25 hover:shadow-[#76e000]/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
           <i class="fa-solid fa-play text-xs"></i> Start Day 1
         </a>
-        
+
         <!-- Mobile Toggle Button -->
-        <button id="mobile-menu-toggle" class="md:hidden w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center">
+        <button id="mobile-menu-toggle"
+          class="md:hidden w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center">
           <i class="fa-solid fa-bars text-lg"></i>
         </button>
       </div>
@@ -105,26 +121,33 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu-drawer" class="hidden md:hidden bg-[#070a0e] border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+    <div id="mobile-menu-drawer"
+      class="hidden md:hidden bg-[#070a0e] border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
       <div class="flex items-center justify-between pb-2 border-b border-slate-800">
         <div class="flex items-center gap-2">
           <span class="text-sm font-bold text-white">Fit<span class="text-[#76e000] italic">aasu</span></span>
         </div>
-        <button id="mobile-menu-close" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+        <button id="mobile-menu-close" class="text-slate-400 hover:text-white"><i
+            class="fa-solid fa-xmark text-lg"></i></button>
       </div>
-      <a href="#transformation-section" class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
+      <a href="#transformation-section"
+        class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
         <i class="fa-solid fa-fire text-[#76e000]"></i> 30 KG Transformation Plan
       </a>
-      <a href="#workout-section" class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
+      <a href="#workout-section"
+        class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
         <i class="fa-solid fa-calendar-week text-[#76e000]"></i> Day 1 to 7 Workouts
       </a>
-      <a href="#exercise-library" class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
+      <a href="#exercise-library"
+        class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
         <i class="fa-solid fa-dumbbell text-emerald-400"></i> All Exercises Library
       </a>
-      <a href="#diet-section" class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
+      <a href="#diet-section"
+        class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
         <i class="fa-solid fa-utensils text-amber-400"></i> Diet Plans & Timetable
       </a>
-      <a href="#calculator-section" class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
+      <a href="#calculator-section"
+        class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
         <i class="fa-solid fa-calculator text-cyan-400"></i> Macro & BMI Calculators
       </a>
     </div>
@@ -135,18 +158,23 @@
        ========================================================================= -->
   <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
     <!-- Ambient Radial Glows -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[380px] bg-[#76e000]/10 rounded-full blur-[140px] pointer-events-none"></div>
-    <div class="absolute top-1/3 right-10 w-[400px] h-[300px] bg-emerald-500/10 rounded-full blur-[110px] pointer-events-none"></div>
+    <div
+      class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[380px] bg-[#76e000]/10 rounded-full blur-[140px] pointer-events-none">
+    </div>
+    <div
+      class="absolute top-1/3 right-10 w-[400px] h-[300px] bg-emerald-500/10 rounded-full blur-[110px] pointer-events-none">
+    </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
+
         <!-- Left Content -->
         <div class="lg:col-span-7 text-center lg:text-left">
-          
+
           <!-- Official Tagline Badge -->
-          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-[#76e000]/40 text-[#76e000] text-xs font-mono font-bold mb-6 shadow-inner">
+          <div
+            class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-[#76e000]/40 text-[#76e000] text-xs font-mono font-bold mb-6 shadow-inner">
             <i class="fa-solid fa-heart-pulse text-[#76e000]"></i> FIT TODAY • STRONGER TOMORROW
           </div>
 
@@ -160,25 +188,32 @@
 
           <!-- Heartbeat ECG line illustration -->
           <div class="my-4 flex items-center justify-center lg:justify-start">
-            <svg class="w-64 sm:w-80 h-7 text-[#76e000]" viewBox="0 0 240 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M0,15 L70,15 L80,5 L90,26 L100,2 L110,28 L120,12 L130,18 L140,15 L240,15" class="ecg-line"></path>
+            <svg class="w-64 sm:w-80 h-7 text-[#76e000]" viewBox="0 0 240 30" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M0,15 L70,15 L80,5 L90,26 L100,2 L110,28 L120,12 L130,18 L140,15 L240,15" class="ecg-line">
+              </path>
             </svg>
           </div>
 
           <p class="mt-4 text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
-            <strong class="text-white">Fitaasu</strong> gives you a complete, scientifically calibrated 
-            <strong class="text-white">Day 1 to 7 workout split</strong>, <strong class="text-white">56+ exercises</strong> with coaching form cues, and <strong class="text-white">5 goal diet protocols</strong> with exact meal timetables and macro breakdowns.
+            <strong class="text-white">Fitaasu</strong> gives you a complete, scientifically calibrated
+            <strong class="text-white">Day 1 to 7 workout split</strong>, <strong class="text-white">56+
+              exercises</strong> with coaching form cues, and <strong class="text-white">5 goal diet protocols</strong>
+            with exact meal timetables and macro breakdowns.
           </p>
 
           <!-- CTA Buttons -->
           <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-            <a href="#transformation-section" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#76e000] to-[#55a000] text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-xl shadow-[#76e000]/25 hover:shadow-[#76e000]/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+            <a href="#transformation-section"
+              class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#76e000] to-[#55a000] text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-xl shadow-[#76e000]/25 hover:shadow-[#76e000]/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
               <i class="fa-solid fa-fire text-slate-950"></i> 30 KG Transformation
             </a>
-            <a href="#workout-section" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white font-extrabold text-sm uppercase tracking-wider border border-slate-700 hover:border-[#76e000]/50 transition-all flex items-center justify-center gap-2">
+            <a href="#workout-section"
+              class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white font-extrabold text-sm uppercase tracking-wider border border-slate-700 hover:border-[#76e000]/50 transition-all flex items-center justify-center gap-2">
               <i class="fa-solid fa-dumbbell text-[#76e000]"></i> 7-Day Routine
             </a>
-            <a href="#diet-section" class="w-full sm:w-auto px-6 py-4 rounded-2xl bg-slate-900/50 hover:bg-slate-800 text-slate-300 text-sm font-semibold border border-slate-800 transition-all flex items-center justify-center gap-2">
+            <a href="#diet-section"
+              class="w-full sm:w-auto px-6 py-4 rounded-2xl bg-slate-900/50 hover:bg-slate-800 text-slate-300 text-sm font-semibold border border-slate-800 transition-all flex items-center justify-center gap-2">
               <i class="fa-solid fa-bowl-food text-emerald-400"></i> Diet Plans
             </a>
           </div>
@@ -188,10 +223,14 @@
         <!-- Right: Official Logo Showcase Card -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative group">
-            <div class="absolute -inset-1.5 bg-gradient-to-r from-[#76e000] via-emerald-400 to-cyan-500 rounded-[32px] blur-xl opacity-35 group-hover:opacity-60 transition duration-700"></div>
-            
-            <div class="relative glass-card rounded-[28px] p-5 sm:p-6 border border-[#76e000]/40 bg-[#090d14]/95 shadow-2xl flex flex-col items-center">
-              <div class="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden shadow-inner border border-slate-800 relative">
+            <div
+              class="absolute -inset-1.5 bg-gradient-to-r from-[#76e000] via-emerald-400 to-cyan-500 rounded-[32px] blur-xl opacity-35 group-hover:opacity-60 transition duration-700">
+            </div>
+
+            <div
+              class="relative glass-card rounded-[28px] p-5 sm:p-6 border border-[#76e000]/40 bg-[#090d14]/95 shadow-2xl flex flex-col items-center">
+              <div
+                class="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden shadow-inner border border-slate-800 relative">
                 <img src="assets/fitaasu-logo.jpg" alt="Fitaasu Official Logo" class="w-full h-full object-cover">
               </div>
 
@@ -207,7 +246,8 @@
               </div>
 
               <!-- Live Heartbeat Wave -->
-              <div class="w-full mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <div
+                class="w-full mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
                 <span class="flex items-center gap-1.5">
                   <span class="w-2 h-2 rounded-full bg-[#76e000] animate-pulse"></span>
                   Active Split: 7 Days
@@ -222,20 +262,31 @@
 
       <!-- Quick Metrics Counter Strip -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-5xl mx-auto">
-        <div class="glass-card p-5 rounded-2xl text-center border border-slate-800/90 hover:border-[#76e000]/40 transition-all">
-          <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8bf500] to-[#76e000]">-30 KG</div>
+        <div
+          class="glass-card p-5 rounded-2xl text-center border border-slate-800/90 hover:border-[#76e000]/40 transition-all">
+          <div
+            class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8bf500] to-[#76e000]">
+            -30 KG</div>
           <div class="text-xs uppercase font-mono text-slate-400 mt-1">Extreme Blueprint</div>
         </div>
-        <div class="glass-card p-5 rounded-2xl text-center border border-slate-800/90 hover:border-emerald-500/40 transition-all">
-          <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">7 Days</div>
+        <div
+          class="glass-card p-5 rounded-2xl text-center border border-slate-800/90 hover:border-emerald-500/40 transition-all">
+          <div
+            class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">
+            7 Days</div>
           <div class="text-xs uppercase font-mono text-slate-400 mt-1">Full Weekly Split</div>
         </div>
-        <div class="glass-card p-5 rounded-2xl text-center border border-slate-800/90 hover:border-amber-500/40 transition-all">
-          <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">56+</div>
+        <div
+          class="glass-card p-5 rounded-2xl text-center border border-slate-800/90 hover:border-amber-500/40 transition-all">
+          <div
+            class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">
+            56+</div>
           <div class="text-xs uppercase font-mono text-slate-400 mt-1">Targeted Exercises</div>
         </div>
-        <div class="glass-card p-5 rounded-2xl text-center border border-slate-800/90 hover:border-cyan-500/40 transition-all">
-          <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">6 Diets</div>
+        <div
+          class="glass-card p-5 rounded-2xl text-center border border-slate-800/90 hover:border-cyan-500/40 transition-all">
+          <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+            6 Diets</div>
           <div class="text-xs uppercase font-mono text-slate-400 mt-1">Precision Meal Plans</div>
         </div>
       </div>
@@ -246,32 +297,173 @@
   <!-- =========================================================================
        SECTION 0: 30 KG Extreme Weight Loss Transformation Architecture
        ========================================================================= -->
-  <section id="transformation-section" class="py-16 md:py-24 border-t border-slate-800/80 bg-gradient-to-b from-[#070a0e] via-[#091017] to-[#070a0e] relative overflow-hidden">
+  <section id="transformation-section"
+    class="py-16 md:py-24 border-t border-slate-800/80 bg-gradient-to-b from-[#070a0e] via-[#091017] to-[#070a0e] relative overflow-hidden">
     <!-- Ambient Radial Glow -->
-    <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[550px] h-[350px] bg-[#76e000]/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div
+      class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[550px] h-[350px] bg-[#76e000]/10 rounded-full blur-[140px] pointer-events-none">
+    </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
+
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#76e000]/10 border border-[#76e000]/40 text-[#76e000] text-xs font-mono font-bold mb-3 shadow-inner">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#76e000]/10 border border-[#76e000]/40 text-[#76e000] text-xs font-mono font-bold mb-3 shadow-inner">
           <i class="fa-solid fa-fire text-[#76e000]"></i> 30 KG EXTREME WEIGHT LOSS BLUEPRINT
         </div>
         <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          Lose 30 KG. <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#8bf500] to-[#76e000]">Tighten Skin.</span> Rebuild Your Physique.
+          Lose 30 KG. <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#8bf500] to-[#76e000]">Tighten
+            Skin.</span> Rebuild Your Physique.
         </h2>
         <p class="text-slate-400 text-sm md:text-base mt-3 leading-relaxed">
-          Dropping 30 kilograms (66 lbs) requires an exact, evidence-based strategy — not starvation. This is Fitaasu's 3-phase roadmap combining heavy progressive lifting, phased caloric tapering, and anti-loose-skin nutrition so fat never returns.
+          Dropping 30 kilograms (66 lbs) requires an exact, evidence-based strategy — not starvation. This is Fitaasu's
+          3-phase roadmap combining heavy progressive lifting, phased caloric tapering, and anti-loose-skin nutrition so
+          fat never returns.
         </p>
+      </div>
+
+      <!-- Real Before & After Proof Showcase -->
+      <div class="glass-card rounded-[32px] p-6 md:p-10 border border-[#76e000]/40 bg-gradient-to-br from-[#0c131c]/90 via-[#070b10] to-[#0a1017]/90 shadow-2xl mb-16 relative overflow-hidden">
+        
+        <!-- Glow highlight -->
+        <div class="absolute -top-24 -right-24 w-80 h-80 bg-[#76e000]/15 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <!-- Showcase Title -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-800 relative z-10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#76e000]/10 border border-[#76e000]/30 text-[#76e000] text-xs font-mono font-bold mb-2">
+              <i class="fa-solid fa-certificate"></i> REAL PROOF OF THE ARCHITECTURE
+            </div>
+            <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+              From 95 KG to 65 KG: <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#8bf500] to-[#76e000]">-30 KG Transformation</span>
+            </h3>
+            <p class="text-slate-400 text-sm mt-1 max-w-xl">
+              100% natural, scientifically paced body recomposition. No starvation, no surgery, zero loose skin.
+            </p>
+          </div>
+
+          <!-- Quick Stats Pill -->
+          <div class="flex items-center gap-4 bg-slate-900/90 px-5 py-3 rounded-2xl border border-slate-800 shrink-0">
+            <div class="text-center">
+              <span class="text-[10px] font-mono uppercase text-slate-400 block">Total Lost</span>
+              <span class="text-xl font-black text-[#76e000]">-30 KG</span>
+            </div>
+            <div class="h-8 w-px bg-slate-800"></div>
+            <div class="text-center">
+              <span class="text-[10px] font-mono uppercase text-slate-400 block">Duration</span>
+              <span class="text-xl font-black text-white">7 Months</span>
+            </div>
+            <div class="h-8 w-px bg-slate-800"></div>
+            <div class="text-center">
+              <span class="text-[10px] font-mono uppercase text-emerald-400 block">Body Fat</span>
+              <span class="text-xl font-black text-emerald-400">32% → 12%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Before & After Comparison Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8 relative z-10">
+          
+          <!-- BEFORE CARD -->
+          <div class="glass-card rounded-3xl p-5 border border-slate-800/90 bg-[#090d14] flex flex-col justify-between group hover:border-rose-500/40 transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-rose-500/15 text-rose-400 border border-rose-500/30 flex items-center gap-1.5">
+                  <i class="fa-solid fa-clock-rotate-left"></i> BEFORE (DAY 1)
+                </span>
+                <span class="text-sm font-extrabold text-slate-300 font-mono">95 KG / 209 lbs</span>
+              </div>
+              <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-slate-800 shadow-xl bg-slate-950">
+                <img src="assets/before.jpg" alt="Fitaasu Transformation Before Picture" class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500">
+                <div class="absolute bottom-3 left-3 right-3 bg-black/70 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 text-xs text-slate-200">
+                  <span class="text-rose-400 font-bold block mb-0.5">Starting State:</span>
+                  Visceral adiposity, facial puffiness, low stamina, sluggish metabolism.
+                </div>
+              </div>
+            </div>
+
+            <!-- Before Metrics -->
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-800 text-center">
+              <div class="bg-slate-900/60 p-2 rounded-xl border border-slate-800">
+                <span class="text-[10px] font-mono uppercase text-slate-500 block">Body Fat</span>
+                <span class="text-sm font-bold text-slate-300">~32%</span>
+              </div>
+              <div class="bg-slate-900/60 p-2 rounded-xl border border-slate-800">
+                <span class="text-[10px] font-mono uppercase text-slate-500 block">Waist Size</span>
+                <span class="text-sm font-bold text-slate-300">38 inches</span>
+              </div>
+              <div class="bg-slate-900/60 p-2 rounded-xl border border-slate-800">
+                <span class="text-[10px] font-mono uppercase text-slate-500 block">Daily Steps</span>
+                <span class="text-sm font-bold text-slate-300">&lt; 3,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AFTER CARD -->
+          <div class="glass-card rounded-3xl p-5 border border-[#76e000]/50 bg-[#090d14] flex flex-col justify-between group hover:border-[#76e000] shadow-xl shadow-[#76e000]/10 transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-[#76e000]/20 text-[#76e000] border border-[#76e000]/40 flex items-center gap-1.5 shadow-sm">
+                  <i class="fa-solid fa-trophy"></i> AFTER: -30 KG REBORN
+                </span>
+                <span class="text-sm font-extrabold text-[#76e000] font-mono">65 KG / 143 lbs</span>
+              </div>
+              <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-[#76e000]/40 shadow-xl bg-slate-950">
+                <img src="assets/after.jpg" alt="Fitaasu Transformation After Picture" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500">
+                <div class="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-md px-3.5 py-2 rounded-xl border border-[#76e000]/30 text-xs text-slate-200">
+                  <span class="text-[#76e000] font-bold block mb-0.5">Transformed State:</span>
+                  Chiseled jawline, defined chest & abs, tight skin, athletic strength & boundless energy.
+                </div>
+              </div>
+            </div>
+
+            <!-- After Metrics -->
+            <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-800 text-center">
+              <div class="bg-[#76e000]/10 p-2 rounded-xl border border-[#76e000]/30">
+                <span class="text-[10px] font-mono uppercase text-slate-400 block">Body Fat</span>
+                <span class="text-sm font-bold text-[#76e000]">~12%</span>
+              </div>
+              <div class="bg-[#76e000]/10 p-2 rounded-xl border border-[#76e000]/30">
+                <span class="text-[10px] font-mono uppercase text-slate-400 block">Waist Size</span>
+                <span class="text-sm font-bold text-white">29 inches</span>
+              </div>
+              <div class="bg-[#76e000]/10 p-2 rounded-xl border border-[#76e000]/30">
+                <span class="text-[10px] font-mono uppercase text-slate-400 block">Daily Steps</span>
+                <span class="text-sm font-bold text-[#76e000]">10,000+</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Transformation Formula Banner -->
+        <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-300 relative z-10">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#76e000]/15 text-[#76e000] flex items-center justify-center font-bold text-base shrink-0">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              <strong class="text-white text-sm block">How This Result Was Engineered:</strong>
+              Followed the <strong>Fitaasu 7-Day Workout Split</strong> + <strong>1,620 kcal High-Protein Shred Diet</strong> with progressive overload & 10,000 daily steps.
+            </div>
+          </div>
+          <a href="#diet-section" onclick="goToTransformationDiet()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#76e000] to-[#55a000] text-slate-950 font-bold text-xs uppercase tracking-wider shrink-0 hover:scale-[1.02] transition-all flex items-center gap-2">
+            <i class="fa-solid fa-utensils"></i> View The Exact Diet Plan
+          </a>
+        </div>
+
       </div>
 
       <!-- Interactive 30 KG Calculator & Milestones Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
-        
+
         <!-- Calculator Form (5 Cols) -->
         <div class="lg:col-span-5 glass-card rounded-3xl p-6 md:p-7 border border-[#76e000]/30 shadow-2xl">
           <div class="flex items-center gap-3 mb-5 pb-3 border-b border-slate-800">
-            <div class="w-10 h-10 rounded-xl bg-[#76e000]/15 text-[#76e000] border border-[#76e000]/30 flex items-center justify-center font-bold">
+            <div
+              class="w-10 h-10 rounded-xl bg-[#76e000]/15 text-[#76e000] border border-[#76e000]/30 flex items-center justify-center font-bold">
               <i class="fa-solid fa-bullseye text-base"></i>
             </div>
             <div>
@@ -283,19 +475,22 @@
           <form id="trans-calc-form" class="space-y-4">
             <div>
               <label class="block text-xs font-mono uppercase text-slate-400 mb-1.5">Starting Body Weight (kg)</label>
-              <input type="number" id="trans-weight" value="95" min="60" max="250" step="0.5" required class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
+              <input type="number" id="trans-weight" value="95" min="60" max="250" step="0.5" required
+                class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
             </div>
 
             <div>
               <label class="block text-xs font-mono uppercase text-slate-400 mb-1.5">Transformation Pace</label>
-              <select id="trans-pace" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
+              <select id="trans-pace"
+                class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
                 <option value="28" selected>Balanced Pace (28 Weeks / 6.5 Months) - Recommended</option>
                 <option value="24">Aggressive Pace (24 Weeks / 5.5 Months)</option>
                 <option value="34">Sustainable Pace (34 Weeks / 8 Months)</option>
               </select>
             </div>
 
-            <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-[#76e000] to-[#55a000] text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#76e000]/20 hover:scale-[1.02] transition-all">
+            <button type="submit"
+              class="w-full py-3 rounded-xl bg-gradient-to-r from-[#76e000] to-[#55a000] text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#76e000]/20 hover:scale-[1.02] transition-all">
               <i class="fa-solid fa-chart-line mr-1"></i> Update 30 KG Roadmap
             </button>
           </form>
@@ -327,7 +522,8 @@
             </span>
             <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">The 3 Transformation Phases</h3>
           </div>
-          <p class="text-xs text-slate-400 max-w-md">Click each phase below to review workouts, cardio volume, daily calorie targets, and coaching rules.</p>
+          <p class="text-xs text-slate-400 max-w-md">Click each phase below to review workouts, cardio volume, daily
+            calorie targets, and coaching rules.</p>
         </div>
 
         <div id="trans-phases-container">
@@ -347,11 +543,12 @@
 
       <!-- Anti-Loose Skin Rules & Craving Crushers -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
+
         <!-- Anti Loose Skin (7 Cols) -->
         <div class="lg:col-span-7 space-y-4">
           <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-lg bg-[#76e000]/15 text-[#76e000] flex items-center justify-center font-bold text-sm">
+            <div
+              class="w-8 h-8 rounded-lg bg-[#76e000]/15 text-[#76e000] flex items-center justify-center font-bold text-sm">
               <i class="fa-solid fa-shield-virus"></i>
             </div>
             <div>
@@ -367,7 +564,8 @@
         <!-- Craving Crushers & Plateau Breakers (5 Cols) -->
         <div class="lg:col-span-5 space-y-4">
           <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-lg bg-rose-500/15 text-rose-400 flex items-center justify-center font-bold text-sm">
+            <div
+              class="w-8 h-8 rounded-lg bg-rose-500/15 text-rose-400 flex items-center justify-center font-bold text-sm">
               <i class="fa-solid fa-cookie-bite"></i>
             </div>
             <div>
@@ -390,17 +588,19 @@
        ========================================================================= -->
   <section id="workout-section" class="py-16 md:py-24 border-t border-slate-800/80 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <!-- Section Title -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#76e000] uppercase tracking-widest mb-1">
+          <div
+            class="flex items-center gap-2 text-xs font-mono font-bold text-[#76e000] uppercase tracking-widest mb-1">
             <i class="fa-solid fa-calendar-check"></i> Complete Weekly Training Split
           </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Day 1 to Day 7 Workout Routine</h2>
-          <p class="text-slate-400 text-sm md:text-base mt-1">Click any day below to review targeted exercises, log completed sets, or start rest intervals.</p>
+          <p class="text-slate-400 text-sm md:text-base mt-1">Click any day below to review targeted exercises, log
+            completed sets, or start rest intervals.</p>
         </div>
-        
+
         <!-- Quick Action Info -->
         <div class="text-xs text-slate-400 font-mono flex items-center gap-2">
           <span class="w-2.5 h-2.5 rounded-full bg-[#76e000]"></span> Progress automatically auto-saves locally
@@ -437,13 +637,14 @@
        ========================================================================= -->
   <section id="exercise-library" class="py-16 md:py-24 border-t border-slate-800/80 bg-slate-950/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <div class="text-center max-w-3xl mx-auto mb-10">
         <span class="text-xs font-mono font-bold text-[#76e000] uppercase tracking-widest block mb-1">
           <i class="fa-solid fa-book-open"></i> Full Exercise Master Directory
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Explore All 56+ Exercises</h2>
-        <p class="text-slate-400 text-sm md:text-base mt-2">Filter by target muscle group, equipment type, or search for any movement to review biomechanical coaching cues.</p>
+        <p class="text-slate-400 text-sm md:text-base mt-2">Filter by target muscle group, equipment type, or search for
+          any movement to review biomechanical coaching cues.</p>
       </div>
 
       <!-- Search & Filters Container -->
@@ -451,12 +652,9 @@
         <!-- Search Bar -->
         <div class="relative">
           <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-          <input 
-            type="text" 
-            id="exercise-search-input" 
-            placeholder="Search exercises by name, muscle (e.g. 'chest', 'biceps', 'squat', 'bench')..." 
-            class="w-full pl-11 pr-4 py-3 bg-slate-900/90 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#76e000] transition-all"
-          >
+          <input type="text" id="exercise-search-input"
+            placeholder="Search exercises by name, muscle (e.g. 'chest', 'biceps', 'squat', 'bench')..."
+            class="w-full pl-11 pr-4 py-3 bg-slate-900/90 border border-slate-700/80 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#76e000] transition-all">
         </div>
 
         <!-- Muscle Filter Chips -->
@@ -490,14 +688,16 @@
        ========================================================================= -->
   <section id="diet-section" class="py-16 md:py-24 border-t border-slate-800/80 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <!-- Header -->
       <div class="text-center max-w-3xl mx-auto mb-10">
         <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest block mb-1">
           <i class="fa-solid fa-apple-whole"></i> Fitaasu Nutrition Laboratory
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Science-Backed Diet Protocols</h2>
-        <p class="text-slate-400 text-sm md:text-base mt-2">Nutrition constitutes 70% of your transformation. Select your goal below to view full day-by-day timetables, exact macro grams, vegetarian alternatives, and grocery shopping lists.</p>
+        <p class="text-slate-400 text-sm md:text-base mt-2">Nutrition constitutes 70% of your transformation. Select
+          your goal below to view full day-by-day timetables, exact macro grams, vegetarian alternatives, and grocery
+          shopping lists.</p>
       </div>
 
       <!-- Diet Category Tabs -->
@@ -514,7 +714,7 @@
 
       <!-- Smart Grocery List & Supplement Guide Section -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-16 pt-12 border-t border-slate-800">
-        
+
         <!-- Master Grocery List -->
         <div class="lg:col-span-2 space-y-4">
           <div class="flex items-center justify-between">
@@ -549,21 +749,23 @@
        ========================================================================= -->
   <section id="calculator-section" class="py-16 md:py-24 border-t border-slate-800/80 bg-slate-950/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <div class="text-center max-w-3xl mx-auto mb-12">
         <span class="text-xs font-mono font-bold text-[#76e000] uppercase tracking-widest block mb-1">
           <i class="fa-solid fa-sliders"></i> Precision Biometric Tools
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Fitness & Macro Calculators</h2>
-        <p class="text-slate-400 text-sm md:text-base mt-2">Dial in your numbers with mathematical precision. Calculate your maintenance calories, target macros, and track daily hydration.</p>
+        <p class="text-slate-400 text-sm md:text-base mt-2">Dial in your numbers with mathematical precision. Calculate
+          your maintenance calories, target macros, and track daily hydration.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
+
         <!-- TDEE & Macro Calculator -->
         <div class="lg:col-span-2 glass-card rounded-3xl p-6 md:p-8 border border-slate-800">
           <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
-            <div class="w-10 h-10 rounded-xl bg-[#76e000]/10 text-[#76e000] border border-[#76e000]/30 flex items-center justify-center font-bold">
+            <div
+              class="w-10 h-10 rounded-xl bg-[#76e000]/10 text-[#76e000] border border-[#76e000]/30 flex items-center justify-center font-bold">
               <i class="fa-solid fa-calculator text-lg"></i>
             </div>
             <div>
@@ -577,7 +779,8 @@
               <!-- Gender -->
               <div>
                 <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase">Gender</label>
-                <select id="calc-gender" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
+                <select id="calc-gender"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
@@ -586,25 +789,29 @@
               <!-- Age -->
               <div>
                 <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase">Age (Years)</label>
-                <input type="number" id="calc-age" value="25" min="14" max="90" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
+                <input type="number" id="calc-age" value="25" min="14" max="90" required
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
               </div>
 
               <!-- Weight -->
               <div>
                 <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase">Weight (kg)</label>
-                <input type="number" id="calc-weight" value="75" min="30" max="250" step="0.5" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
+                <input type="number" id="calc-weight" value="75" min="30" max="250" step="0.5" required
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
               </div>
 
               <!-- Height -->
               <div>
                 <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase">Height (cm)</label>
-                <input type="number" id="calc-height" value="175" min="100" max="230" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
+                <input type="number" id="calc-height" value="175" min="100" max="230" required
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
               </div>
 
               <!-- Activity Level -->
               <div>
                 <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase">Activity Level</label>
-                <select id="calc-activity" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
+                <select id="calc-activity"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
                   <option value="1.2">Sedentary (Desk Job)</option>
                   <option value="1.375">Lightly Active (1-3 days gym)</option>
                   <option value="1.55" selected>Moderately Active (3-5 days gym)</option>
@@ -616,7 +823,8 @@
               <!-- Goal -->
               <div>
                 <label class="block text-xs font-mono text-slate-400 mb-1.5 uppercase">Fitness Goal</label>
-                <select id="calc-goal" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
+                <select id="calc-goal"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
                   <option value="bulk">Muscle Gain / Bulking (+350 kcal)</option>
                   <option value="cut">Fat Loss / Shredding (-500 kcal)</option>
                   <option value="maintain">Maintenance / Recomposition</option>
@@ -624,7 +832,8 @@
               </div>
             </div>
 
-            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#76e000] to-[#55a000] text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-[#76e000]/25 hover:shadow-[#76e000]/40 transition-all flex items-center justify-center gap-2">
+            <button type="submit"
+              class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#76e000] to-[#55a000] text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-[#76e000]/25 hover:shadow-[#76e000]/40 transition-all flex items-center justify-center gap-2">
               <i class="fa-solid fa-chart-pie"></i> Calculate My Exact Calories & Macros
             </button>
           </form>
@@ -635,11 +844,12 @@
 
         <!-- Sidebar Tools: BMI & Water Tracker -->
         <div class="space-y-6">
-          
+
           <!-- BMI Calculator -->
           <div class="glass-card rounded-3xl p-6 border border-slate-800">
             <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-800">
-              <div class="w-9 h-9 rounded-xl bg-[#76e000]/10 text-[#76e000] border border-[#76e000]/30 flex items-center justify-center font-bold">
+              <div
+                class="w-9 h-9 rounded-xl bg-[#76e000]/10 text-[#76e000] border border-[#76e000]/30 flex items-center justify-center font-bold">
                 <i class="fa-solid fa-weight-scale text-sm"></i>
               </div>
               <h4 class="text-base font-bold text-white">BMI & Ideal Weight</h4>
@@ -649,14 +859,17 @@
               <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="block text-[11px] font-mono text-slate-400 mb-1">Weight (kg)</label>
-                  <input type="number" id="bmi-weight" value="75" required class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white text-xs">
+                  <input type="number" id="bmi-weight" value="75" required
+                    class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white text-xs">
                 </div>
                 <div>
                   <label class="block text-[11px] font-mono text-slate-400 mb-1">Height (cm)</label>
-                  <input type="number" id="bmi-height" value="175" required class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white text-xs">
+                  <input type="number" id="bmi-height" value="175" required
+                    class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white text-xs">
                 </div>
               </div>
-              <button type="submit" class="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-[#76e000] text-xs font-bold border border-[#76e000]/30 transition-all">
+              <button type="submit"
+                class="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-[#76e000] text-xs font-bold border border-[#76e000]/30 transition-all">
                 Check BMI
               </button>
             </form>
@@ -667,7 +880,8 @@
           <div class="glass-card rounded-3xl p-6 border border-slate-800">
             <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
               <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-[#76e000]/10 text-[#76e000] border border-[#76e000]/30 flex items-center justify-center font-bold">
+                <div
+                  class="w-9 h-9 rounded-xl bg-[#76e000]/10 text-[#76e000] border border-[#76e000]/30 flex items-center justify-center font-bold">
                   <i class="fa-solid fa-droplet text-sm"></i>
                 </div>
                 <div>
@@ -675,7 +889,8 @@
                   <span id="water-count-display" class="text-[11px] text-[#76e000] font-mono">0 of 8 Glasses</span>
                 </div>
               </div>
-              <button onclick="resetWaterIntake()" class="text-xs text-slate-500 hover:text-slate-300" title="Reset water">
+              <button onclick="resetWaterIntake()" class="text-xs text-slate-500 hover:text-slate-300"
+                title="Reset water">
                 <i class="fa-solid fa-rotate-left"></i>
               </button>
             </div>
@@ -683,7 +898,8 @@
             <div id="water-glasses-container" class="grid grid-cols-4 gap-2 mb-3">
               <!-- Populated by JS -->
             </div>
-            <p class="text-[11px] text-slate-400">Target 2.5 - 3.5 liters per day to preserve joint elasticity and speed up muscle protein synthesis.</p>
+            <p class="text-[11px] text-slate-400">Target 2.5 - 3.5 liters per day to preserve joint elasticity and speed
+              up muscle protein synthesis.</p>
           </div>
 
         </div>
@@ -696,11 +912,13 @@
   <!-- =========================================================================
        Floating Rest Timer Widget
        ========================================================================= -->
-  <div id="floating-timer-widget" class="fixed bottom-6 right-6 z-50 floating-timer bg-[#070a0e]/95 p-4 rounded-3xl border border-[#76e000]/40 hidden">
+  <div id="floating-timer-widget"
+    class="fixed bottom-6 right-6 z-50 floating-timer bg-[#070a0e]/95 p-4 rounded-3xl border border-[#76e000]/40 hidden">
     <div class="flex items-center justify-between gap-4 pb-2 border-b border-slate-800">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-[#76e000] animate-ping"></span>
-        <span id="floating-timer-label" class="text-xs font-mono font-bold text-[#76e000] uppercase">Rest Interval</span>
+        <span id="floating-timer-label" class="text-xs font-mono font-bold text-[#76e000] uppercase">Rest
+          Interval</span>
       </div>
       <button onclick="closeFloatingTimer()" class="text-slate-400 hover:text-white text-xs">
         <i class="fa-solid fa-xmark"></i>
@@ -711,7 +929,8 @@
     <div class="relative w-36 h-36 mx-auto my-3 flex items-center justify-center">
       <svg class="w-full h-full timer-svg" viewBox="0 0 100 100">
         <circle class="timer-circle-bg" stroke-width="6" fill="transparent" r="45" cx="50" cy="50"></circle>
-        <circle id="timer-svg-circle" class="timer-circle-progress" stroke-width="6" stroke-linecap="round" fill="transparent" r="45" cx="50" cy="50" stroke-dasharray="283" stroke-dashoffset="0"></circle>
+        <circle id="timer-svg-circle" class="timer-circle-progress" stroke-width="6" stroke-linecap="round"
+          fill="transparent" r="45" cx="50" cy="50" stroke-dasharray="283" stroke-dashoffset="0"></circle>
       </svg>
       <div class="absolute inset-0 flex flex-col items-center justify-center">
         <div id="timer-display-digits" class="text-2xl font-black text-white font-mono tracking-wider">01:00</div>
@@ -721,28 +940,38 @@
 
     <!-- Controls -->
     <div class="flex items-center justify-center gap-2">
-      <button id="timer-play-btn" onclick="toggleTimerPlay()" class="w-10 h-10 rounded-xl bg-[#76e000] hover:bg-[#8bf500] text-slate-950 font-bold flex items-center justify-center transition-all shadow-md shadow-[#76e000]/30">
+      <button id="timer-play-btn" onclick="toggleTimerPlay()"
+        class="w-10 h-10 rounded-xl bg-[#76e000] hover:bg-[#8bf500] text-slate-950 font-bold flex items-center justify-center transition-all shadow-md shadow-[#76e000]/30">
         <i class="fa-solid fa-play"></i>
       </button>
-      <button onclick="resetTimer()" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-all" title="Reset">
+      <button onclick="resetTimer()"
+        class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-all"
+        title="Reset">
         <i class="fa-solid fa-rotate-left"></i>
       </button>
     </div>
 
     <!-- Quick Presets -->
     <div class="grid grid-cols-4 gap-1.5 mt-3 pt-2 border-t border-slate-800/80">
-      <button onclick="setTimerPreset(30)" class="py-1 px-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-mono text-slate-300">30s</button>
-      <button onclick="setTimerPreset(60)" class="py-1 px-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-mono text-[#76e000] font-bold">60s</button>
-      <button onclick="setTimerPreset(90)" class="py-1 px-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-mono text-slate-300">90s</button>
-      <button onclick="setTimerPreset(120)" class="py-1 px-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-mono text-slate-300">2m</button>
+      <button onclick="setTimerPreset(30)"
+        class="py-1 px-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-mono text-slate-300">30s</button>
+      <button onclick="setTimerPreset(60)"
+        class="py-1 px-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-mono text-[#76e000] font-bold">60s</button>
+      <button onclick="setTimerPreset(90)"
+        class="py-1 px-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-mono text-slate-300">90s</button>
+      <button onclick="setTimerPreset(120)"
+        class="py-1 px-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-[11px] font-mono text-slate-300">2m</button>
     </div>
   </div>
 
   <!-- =========================================================================
        Exercise Coaching Cues & Form Modal
        ========================================================================= -->
-  <div id="exercise-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md modal-overlay modal-hidden">
-    <div class="glass-card bg-[#090e17] w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 md:p-8 border border-slate-700/80 shadow-2xl modal-content" id="exercise-modal-body">
+  <div id="exercise-modal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md modal-overlay modal-hidden">
+    <div
+      class="glass-card bg-[#090e17] w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 md:p-8 border border-slate-700/80 shadow-2xl modal-content"
+      id="exercise-modal-body">
       <!-- Populated by JS -->
     </div>
   </div>
@@ -756,11 +985,12 @@
   <footer class="border-t border-slate-800 bg-[#040609] pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
-        
+
         <!-- Brand Info -->
         <div class="md:col-span-2 space-y-4">
           <div class="flex items-center gap-3.5">
-            <div class="w-11 h-11 rounded-2xl overflow-hidden border border-[#76e000]/40 p-0.5 shadow-md shadow-[#76e000]/20">
+            <div
+              class="w-11 h-11 rounded-2xl overflow-hidden border border-[#76e000]/40 p-0.5 shadow-md shadow-[#76e000]/20">
               <img src="assets/fitaasu-logo.jpg" alt="Fitaasu Logo" class="w-full h-full object-cover rounded-[14px]">
             </div>
             <div class="flex flex-col">
@@ -768,17 +998,21 @@
                 <span class="text-2xl font-black tracking-tight text-white font-sans">Fit</span>
                 <span class="text-2xl font-black italic tracking-tight text-[#76e000] font-sans">aasu</span>
               </div>
-              <span class="text-[9px] tracking-widest uppercase font-mono text-slate-400 font-bold -mt-0.5">FIT TODAY • STRONGER TOMORROW</span>
+              <span class="text-[9px] tracking-widest uppercase font-mono text-slate-400 font-bold -mt-0.5">FIT TODAY •
+                STRONGER TOMORROW</span>
             </div>
           </div>
           <p class="text-slate-400 text-sm max-w-md">
-            The premier open-access fitness and nutrition platform. Engineered to eliminate guesswork, deliver evidence-based weekly splits, and guide lifters to world-class natural physiques.
+            The premier open-access fitness and nutrition platform. Engineered to eliminate guesswork, deliver
+            evidence-based weekly splits, and guide lifters to world-class natural physiques.
           </p>
           <div class="flex items-center gap-3 text-slate-400 text-sm pt-2">
-            <span class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-mono text-[#76e000]">
+            <span
+              class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-mono text-[#76e000]">
               <i class="fa-solid fa-heart-pulse"></i> Fit Today • Stronger Tomorrow
             </span>
-            <span class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-mono text-emerald-400">
+            <span
+              class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-mono text-emerald-400">
               <i class="fa-solid fa-shield-halved"></i> 100% Free
             </span>
           </div>
@@ -788,28 +1022,44 @@
         <div>
           <h5 class="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">7-Day Split</h5>
           <ul class="space-y-2 text-xs text-slate-400">
-            <li><a href="#workout-section" onclick="switchDay(1)" class="hover:text-[#76e000] transition-colors">Day 1: Chest & Triceps</a></li>
-            <li><a href="#workout-section" onclick="switchDay(2)" class="hover:text-[#76e000] transition-colors">Day 2: Back & Biceps</a></li>
-            <li><a href="#workout-section" onclick="switchDay(3)" class="hover:text-[#76e000] transition-colors">Day 3: Legs & Calves</a></li>
-            <li><a href="#workout-section" onclick="switchDay(4)" class="hover:text-[#76e000] transition-colors">Day 4: Shoulders & Abs</a></li>
-            <li><a href="#workout-section" onclick="switchDay(5)" class="hover:text-[#76e000] transition-colors">Day 5: Full Body Functional</a></li>
-            <li><a href="#workout-section" onclick="switchDay(6)" class="hover:text-[#76e000] transition-colors">Day 6: Arms & Core Sculpt</a></li>
-            <li><a href="#workout-section" onclick="switchDay(7)" class="hover:text-[#76e000] transition-colors">Day 7: Active Recovery</a></li>
+            <li><a href="#workout-section" onclick="switchDay(1)" class="hover:text-[#76e000] transition-colors">Day 1:
+                Chest & Triceps</a></li>
+            <li><a href="#workout-section" onclick="switchDay(2)" class="hover:text-[#76e000] transition-colors">Day 2:
+                Back & Biceps</a></li>
+            <li><a href="#workout-section" onclick="switchDay(3)" class="hover:text-[#76e000] transition-colors">Day 3:
+                Legs & Calves</a></li>
+            <li><a href="#workout-section" onclick="switchDay(4)" class="hover:text-[#76e000] transition-colors">Day 4:
+                Shoulders & Abs</a></li>
+            <li><a href="#workout-section" onclick="switchDay(5)" class="hover:text-[#76e000] transition-colors">Day 5:
+                Full Body Functional</a></li>
+            <li><a href="#workout-section" onclick="switchDay(6)" class="hover:text-[#76e000] transition-colors">Day 6:
+                Arms & Core Sculpt</a></li>
+            <li><a href="#workout-section" onclick="switchDay(7)" class="hover:text-[#76e000] transition-colors">Day 7:
+                Active Recovery</a></li>
           </ul>
         </div>
 
         <!-- Nutrition & Tools -->
         <div>
-          <h5 class="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">Transformation & Nutrition</h5>
+          <h5 class="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">Transformation & Nutrition
+          </h5>
           <ul class="space-y-2 text-xs text-slate-400">
-            <li><a href="#transformation-section" class="text-[#76e000] font-bold hover:underline transition-colors"><i class="fa-solid fa-fire text-xs mr-1"></i> 30 KG Transformation Blueprint</a></li>
-            <li><a href="#diet-section" onclick="switchDietPlan('transformation-30kg')" class="hover:text-[#76e000] transition-colors">30 KG Extreme Shred Diet</a></li>
-            <li><a href="#diet-section" onclick="switchDietPlan('bulking')" class="hover:text-[#76e000] transition-colors">Hypertrophy Bulking Diet</a></li>
-            <li><a href="#diet-section" onclick="switchDietPlan('cutting')" class="hover:text-rose-400 transition-colors">Fat Shred Cutting Diet</a></li>
-            <li><a href="#diet-section" onclick="switchDietPlan('indian-desi')" class="hover:text-amber-400 transition-colors">Indian Desi Gym Diet</a></li>
-            <li><a href="#diet-section" onclick="switchDietPlan('vegetarian')" class="hover:text-emerald-400 transition-colors">100% Vegetarian Diet</a></li>
-            <li><a href="#calculator-section" class="hover:text-cyan-400 transition-colors">TDEE & Macro Calculator</a></li>
-            <li><a href="#calculator-section" class="hover:text-cyan-400 transition-colors">Daily Water Intake Tracker</a></li>
+            <li><a href="#transformation-section" class="text-[#76e000] font-bold hover:underline transition-colors"><i
+                  class="fa-solid fa-fire text-xs mr-1"></i> 30 KG Transformation Blueprint</a></li>
+            <li><a href="#diet-section" onclick="switchDietPlan('transformation-30kg')"
+                class="hover:text-[#76e000] transition-colors">30 KG Extreme Shred Diet</a></li>
+            <li><a href="#diet-section" onclick="switchDietPlan('bulking')"
+                class="hover:text-[#76e000] transition-colors">Hypertrophy Bulking Diet</a></li>
+            <li><a href="#diet-section" onclick="switchDietPlan('cutting')"
+                class="hover:text-rose-400 transition-colors">Fat Shred Cutting Diet</a></li>
+            <li><a href="#diet-section" onclick="switchDietPlan('indian-desi')"
+                class="hover:text-amber-400 transition-colors">Indian Desi Gym Diet</a></li>
+            <li><a href="#diet-section" onclick="switchDietPlan('vegetarian')"
+                class="hover:text-emerald-400 transition-colors">100% Vegetarian Diet</a></li>
+            <li><a href="#calculator-section" class="hover:text-cyan-400 transition-colors">TDEE & Macro Calculator</a>
+            </li>
+            <li><a href="#calculator-section" class="hover:text-cyan-400 transition-colors">Daily Water Intake
+                Tracker</a></li>
           </ul>
         </div>
 
@@ -818,10 +1068,12 @@
       <!-- Legal & Disclaimer -->
       <div class="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
         <div>
-          &copy; 2026 <strong class="text-slate-400">Fitaasu</strong>. Fit Today • Stronger Tomorrow. All rights reserved.
+          &copy; 2026 <strong class="text-slate-400">Fitaasu</strong>. Fit Today • Stronger Tomorrow. All rights
+          reserved.
         </div>
         <div class="text-[11px] text-slate-500 max-w-xl text-center md:text-right">
-          Disclaimer: Consult with a medical physician before beginning any new vigorous exercise routine or nutrition program.
+          Disclaimer: Consult with a medical physician before beginning any new vigorous exercise routine or nutrition
+          program.
         </div>
       </div>
     </div>
@@ -829,11 +1081,12 @@
 
   <!-- Canvas Confetti for Workout Celebration -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  
+
   <!-- FitAasu Data & Application Logic -->
   <script src="js/exercises-data.js"></script>
   <script src="js/diet-data.js"></script>
   <script src="js/app.js"></script>
 
 </body>
+
 </html>
