@@ -102,6 +102,10 @@
           class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
           <i class="fa-solid fa-calculator text-cyan-400 text-xs mr-1.5"></i> Calculators
         </a>
+        <a href="#calorie-tracker-section"
+          class="px-3.5 py-2 rounded-xl text-sm font-semibold text-slate-300 hover:text-[#76e000] hover:bg-slate-800/70 transition-all">
+          <i class="fa-solid fa-fire-flame-curved text-rose-400 text-xs mr-1.5"></i> Calorie Tracker
+        </a>
       </nav>
 
       <!-- Action Button & Mobile Menu Toggle -->
@@ -150,6 +154,10 @@
         class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
         <i class="fa-solid fa-calculator text-cyan-400"></i> Macro & BMI Calculators
       </a>
+      <a href="#calorie-tracker-section"
+        class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 text-slate-200 text-sm font-semibold">
+        <i class="fa-solid fa-fire-flame-curved text-rose-400"></i> Calorie & Step Tracker
+      </a>
     </div>
   </header>
 
@@ -157,6 +165,11 @@
        Hero Section
        ========================================================================= -->
   <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img src="assets/bg-hero.jpg" alt="Fitaasu Transformation" class="w-full h-full object-cover object-top opacity-20">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#070a0e]/60 via-[#070a0e]/80 to-[#070a0e]"></div>
+    </div>
     <!-- Ambient Radial Glows -->
     <div
       class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[380px] bg-[#76e000]/10 rounded-full blur-[140px] pointer-events-none">
@@ -906,6 +919,374 @@
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 5: Calorie Tracker, Running Log & Step Counter
+       ========================================================================= -->
+  <section id="calorie-tracker-section" class="py-16 md:py-24 border-t border-slate-800/80 relative">
+    <!-- Background accent -->
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-500/5 rounded-full blur-[150px] pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-mono font-bold text-rose-400 uppercase tracking-widest block mb-1">
+          <i class="fa-solid fa-fire-flame-curved"></i> Daily Tracking Dashboard
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Calorie, Running & Step Tracker</h2>
+        <p class="text-slate-400 text-sm md:text-base mt-2">Track every calorie you eat, log your runs, and count your daily steps. All data saved locally — your progress never resets.</p>
+      </div>
+
+      <!-- Dashboard Stats Summary -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 text-center">
+          <div class="text-[10px] font-mono uppercase text-slate-400 tracking-wider">Calories Consumed</div>
+          <div class="text-3xl font-black text-rose-400 mt-1" id="dash-calories-in">0</div>
+          <div class="text-[10px] text-slate-500 font-mono mt-0.5">kcal today</div>
+        </div>
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 text-center">
+          <div class="text-[10px] font-mono uppercase text-slate-400 tracking-wider">Calories Burned</div>
+          <div class="text-3xl font-black text-[#76e000] mt-1" id="dash-calories-out">0</div>
+          <div class="text-[10px] text-slate-500 font-mono mt-0.5">kcal today</div>
+        </div>
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 text-center">
+          <div class="text-[10px] font-mono uppercase text-slate-400 tracking-wider">Steps Today</div>
+          <div class="text-3xl font-black text-cyan-400 mt-1" id="dash-steps">0</div>
+          <div class="text-[10px] text-slate-500 font-mono mt-0.5">/ 10,000 goal</div>
+        </div>
+        <div class="glass-card rounded-2xl p-5 border border-slate-800 text-center">
+          <div class="text-[10px] font-mono uppercase text-slate-400 tracking-wider">Distance Run</div>
+          <div class="text-3xl font-black text-amber-400 mt-1" id="dash-distance">0.0</div>
+          <div class="text-[10px] text-slate-500 font-mono mt-0.5">km today</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- ═══ LEFT: Calorie Tracker (Food Log) ═══ -->
+        <div class="lg:col-span-2 space-y-6">
+
+          <!-- Add Food Form -->
+          <div class="glass-card rounded-3xl p-6 border border-slate-800">
+            <div class="flex items-center gap-3 mb-5 pb-3 border-b border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/30 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-utensils text-sm"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">Food & Calorie Logger</h3>
+                <p class="text-xs text-slate-400">Log your meals to track daily calorie & macro intake</p>
+              </div>
+            </div>
+
+            <form id="food-log-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[11px] font-mono text-slate-400 mb-1 uppercase">Food Name</label>
+                  <input type="text" id="food-name" placeholder="e.g. Chicken Breast, Rice, Egg..." required
+                    class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-rose-400 transition-all">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-mono text-slate-400 mb-1 uppercase">Meal Type</label>
+                  <select id="food-meal"
+                    class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-rose-400">
+                    <option value="breakfast">🌅 Breakfast</option>
+                    <option value="lunch">☀️ Lunch</option>
+                    <option value="snack">🍌 Snack</option>
+                    <option value="dinner">🌙 Dinner</option>
+                    <option value="pre-workout">💪 Pre-Workout</option>
+                    <option value="post-workout">🏋️ Post-Workout</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div>
+                  <label class="block text-[11px] font-mono text-slate-400 mb-1 uppercase">Calories</label>
+                  <input type="number" id="food-calories" placeholder="kcal" required min="0"
+                    class="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-rose-400">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-mono text-rose-400 mb-1 uppercase">Protein (g)</label>
+                  <input type="number" id="food-protein" placeholder="g" min="0"
+                    class="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-rose-400">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-mono text-amber-400 mb-1 uppercase">Carbs (g)</label>
+                  <input type="number" id="food-carbs" placeholder="g" min="0"
+                    class="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-mono text-[#76e000] mb-1 uppercase">Fat (g)</label>
+                  <input type="number" id="food-fat" placeholder="g" min="0"
+                    class="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-[#76e000]">
+                </div>
+              </div>
+
+              <!-- Quick Add Common Foods -->
+              <div>
+                <span class="text-[10px] font-mono text-slate-500 uppercase block mb-2">Quick Add:</span>
+                <div class="flex flex-wrap gap-1.5">
+                  <button type="button" onclick="quickAddFood('Egg (Boiled)', 78, 6, 1, 5, 'breakfast')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🥚 Egg 78cal</button>
+                  <button type="button" onclick="quickAddFood('Chicken Breast 100g', 165, 31, 0, 3.6, 'lunch')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🍗 Chicken 165cal</button>
+                  <button type="button" onclick="quickAddFood('Rice 1 Cup', 206, 4, 45, 0.4, 'lunch')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🍚 Rice 206cal</button>
+                  <button type="button" onclick="quickAddFood('Banana', 105, 1.3, 27, 0.3, 'snack')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🍌 Banana 105cal</button>
+                  <button type="button" onclick="quickAddFood('Roti (1 pc)', 120, 3, 20, 3.5, 'dinner')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🫓 Roti 120cal</button>
+                  <button type="button" onclick="quickAddFood('Whey Protein Scoop', 120, 24, 3, 1, 'post-workout')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🥤 Whey 120cal</button>
+                  <button type="button" onclick="quickAddFood('Paneer 100g', 265, 18, 1.2, 21, 'lunch')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🧀 Paneer 265cal</button>
+                  <button type="button" onclick="quickAddFood('Oats 1 Cup', 154, 5, 27, 2.5, 'breakfast')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🥣 Oats 154cal</button>
+                  <button type="button" onclick="quickAddFood('Dal 1 Bowl', 180, 12, 30, 1, 'dinner')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🍲 Dal 180cal</button>
+                  <button type="button" onclick="quickAddFood('Peanut Butter 2tbsp', 188, 8, 6, 16, 'snack')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition-all">🥜 PB 188cal</button>
+                </div>
+              </div>
+
+              <button type="submit"
+                class="w-full py-3 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-plus"></i> Log Food
+              </button>
+            </form>
+          </div>
+
+          <!-- Macro Progress Bars -->
+          <div class="glass-card rounded-3xl p-6 border border-slate-800">
+            <h4 class="text-sm font-bold text-white uppercase font-mono flex items-center gap-2 mb-4">
+              <i class="fa-solid fa-chart-pie text-rose-400"></i> Today's Macro Breakdown
+            </h4>
+            <div class="space-y-4">
+              <!-- Calorie Bar -->
+              <div>
+                <div class="flex justify-between items-center text-xs font-mono mb-1">
+                  <span class="text-slate-400">🔥 Calories</span>
+                  <span class="text-rose-400 font-bold"><span id="macro-cal-current">0</span> / <span id="macro-cal-goal">2500</span> kcal</span>
+                </div>
+                <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden">
+                  <div id="macro-cal-bar" class="bg-gradient-to-r from-rose-500 to-rose-400 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+              <!-- Protein Bar -->
+              <div>
+                <div class="flex justify-between items-center text-xs font-mono mb-1">
+                  <span class="text-slate-400">💪 Protein</span>
+                  <span class="text-rose-300 font-bold"><span id="macro-pro-current">0</span> / <span id="macro-pro-goal">150</span> g</span>
+                </div>
+                <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden">
+                  <div id="macro-pro-bar" class="bg-gradient-to-r from-rose-600 to-pink-400 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+              <!-- Carbs Bar -->
+              <div>
+                <div class="flex justify-between items-center text-xs font-mono mb-1">
+                  <span class="text-slate-400">⚡ Carbs</span>
+                  <span class="text-amber-400 font-bold"><span id="macro-carb-current">0</span> / <span id="macro-carb-goal">300</span> g</span>
+                </div>
+                <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden">
+                  <div id="macro-carb-bar" class="bg-gradient-to-r from-amber-500 to-yellow-400 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+              <!-- Fat Bar -->
+              <div>
+                <div class="flex justify-between items-center text-xs font-mono mb-1">
+                  <span class="text-slate-400">🥑 Fat</span>
+                  <span class="text-[#76e000] font-bold"><span id="macro-fat-current">0</span> / <span id="macro-fat-goal">80</span> g</span>
+                </div>
+                <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden">
+                  <div id="macro-fat-bar" class="bg-gradient-to-r from-[#76e000] to-emerald-400 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Food Log List -->
+          <div class="glass-card rounded-3xl p-6 border border-slate-800">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+              <h4 class="text-sm font-bold text-white uppercase font-mono flex items-center gap-2">
+                <i class="fa-solid fa-list text-rose-400"></i> Today's Food Log
+              </h4>
+              <button onclick="clearFoodLog()" class="text-xs text-slate-500 hover:text-rose-400 flex items-center gap-1 transition-all">
+                <i class="fa-solid fa-trash-can"></i> Clear All
+              </button>
+            </div>
+            <div id="food-log-list" class="space-y-2 max-h-[400px] overflow-y-auto scrollbar-none">
+              <div class="text-center py-6 text-slate-500 text-sm">
+                <i class="fa-solid fa-bowl-food text-2xl mb-2 block text-slate-600"></i>
+                No food logged yet today. Start adding meals above!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ RIGHT SIDEBAR: Step Counter + Running Tracker ═══ -->
+        <div class="space-y-6">
+
+          <!-- Step Counter -->
+          <div class="glass-card rounded-3xl p-6 border border-slate-800">
+            <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-shoe-prints text-sm"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-white">Step Counter</h4>
+                <span class="text-[11px] text-cyan-400 font-mono" id="step-goal-label">Goal: 10,000 steps</span>
+              </div>
+            </div>
+
+            <!-- Circular Progress -->
+            <div class="relative w-44 h-44 mx-auto my-4">
+              <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                <circle stroke-width="8" fill="transparent" r="42" cx="50" cy="50" class="stroke-slate-800"></circle>
+                <circle id="step-progress-ring" stroke-width="8" stroke-linecap="round" fill="transparent" r="42" cx="50" cy="50"
+                  class="stroke-cyan-400 transition-all duration-700"
+                  stroke-dasharray="264" stroke-dashoffset="264"></circle>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <div id="step-count-display" class="text-3xl font-black text-white font-mono">0</div>
+                <span class="text-[10px] text-slate-400 font-mono uppercase">steps</span>
+                <span id="step-pct-display" class="text-xs text-cyan-400 font-bold mt-0.5">0%</span>
+              </div>
+            </div>
+
+            <!-- Step Input -->
+            <div class="space-y-3">
+              <div class="flex gap-2">
+                <input type="number" id="step-input" placeholder="Enter steps..." min="0"
+                  class="flex-1 px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400">
+                <button onclick="addSteps()" class="px-4 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 font-bold text-sm border border-cyan-500/30 transition-all">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+              <!-- Quick Step Buttons -->
+              <div class="grid grid-cols-3 gap-1.5">
+                <button onclick="addQuickSteps(1000)" class="py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 transition-all">+1K</button>
+                <button onclick="addQuickSteps(2500)" class="py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 transition-all">+2.5K</button>
+                <button onclick="addQuickSteps(5000)" class="py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-cyan-400 font-bold transition-all">+5K</button>
+              </div>
+              <div class="flex justify-between">
+                <select id="step-goal-select" onchange="updateStepGoal()"
+                  class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none">
+                  <option value="5000">Goal: 5K</option>
+                  <option value="7500">Goal: 7.5K</option>
+                  <option value="10000" selected>Goal: 10K</option>
+                  <option value="15000">Goal: 15K</option>
+                  <option value="20000">Goal: 20K</option>
+                </select>
+                <button onclick="resetSteps()" class="text-xs text-slate-500 hover:text-slate-300 transition-all" title="Reset steps">
+                  <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+              </div>
+            </div>
+            <!-- Calories burned from steps -->
+            <div class="mt-4 p-3 rounded-xl bg-cyan-500/5 border border-cyan-500/20 text-center">
+              <span class="text-[10px] font-mono text-slate-400 uppercase block">Est. Calories Burned from Steps</span>
+              <span class="text-lg font-black text-cyan-400" id="step-calories-burned">0</span>
+              <span class="text-xs text-slate-500 font-mono">kcal</span>
+            </div>
+          </div>
+
+          <!-- Running Tracker -->
+          <div class="glass-card rounded-3xl p-6 border border-slate-800">
+            <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-person-running text-sm"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-white">Running Tracker</h4>
+                <span class="text-[11px] text-amber-400 font-mono">Log your runs & jogs</span>
+              </div>
+            </div>
+
+            <form id="run-log-form" class="space-y-3">
+              <div>
+                <label class="block text-[11px] font-mono text-slate-400 mb-1 uppercase">Distance (km)</label>
+                <input type="number" id="run-distance" placeholder="e.g. 3.5" step="0.1" min="0" required
+                  class="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
+              </div>
+              <div>
+                <label class="block text-[11px] font-mono text-slate-400 mb-1 uppercase">Duration (minutes)</label>
+                <input type="number" id="run-duration" placeholder="e.g. 30" min="0" required
+                  class="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
+              </div>
+              <div>
+                <label class="block text-[11px] font-mono text-slate-400 mb-1 uppercase">Run Type</label>
+                <select id="run-type"
+                  class="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
+                  <option value="easy">🏃 Easy / Recovery Run</option>
+                  <option value="steady">🏃‍♂️ Steady State Run</option>
+                  <option value="tempo">⚡ Tempo Run</option>
+                  <option value="intervals">🔥 Interval Sprints</option>
+                  <option value="long">🛣️ Long Distance Run</option>
+                  <option value="walk">🚶 Brisk Walk / LISS</option>
+                </select>
+              </div>
+              <button type="submit"
+                class="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-plus"></i> Log Run
+              </button>
+            </form>
+
+            <!-- Run Log -->
+            <div class="mt-4 pt-3 border-t border-slate-800">
+              <h5 class="text-xs font-mono text-slate-400 uppercase mb-2">Today's Runs</h5>
+              <div id="run-log-list" class="space-y-2 max-h-[250px] overflow-y-auto scrollbar-none">
+                <div class="text-center py-4 text-slate-500 text-xs">
+                  <i class="fa-solid fa-person-running text-lg mb-1 block text-slate-600"></i>
+                  No runs logged yet today.
+                </div>
+              </div>
+            </div>
+
+            <!-- Run Stats -->
+            <div class="mt-4 grid grid-cols-2 gap-2">
+              <div class="p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 text-center">
+                <span class="text-[10px] font-mono text-slate-400 uppercase block">Total Distance</span>
+                <span class="text-lg font-black text-amber-400" id="run-total-distance">0.0</span>
+                <span class="text-xs text-slate-500 font-mono">km</span>
+              </div>
+              <div class="p-3 rounded-xl bg-amber-500/5 border border-amber-500/20 text-center">
+                <span class="text-[10px] font-mono text-slate-400 uppercase block">Calories Burned</span>
+                <span class="text-lg font-black text-amber-400" id="run-calories-burned">0</span>
+                <span class="text-xs text-slate-500 font-mono">kcal</span>
+              </div>
+            </div>
+
+            <button onclick="clearRunLog()" class="w-full mt-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-400 transition-all">
+              <i class="fa-solid fa-rotate-left"></i> Clear Run History
+            </button>
+          </div>
+
+          <!-- Net Calorie Balance -->
+          <div class="glass-card rounded-3xl p-6 border border-slate-800">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-xl bg-[#76e000]/10 text-[#76e000] border border-[#76e000]/30 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-scale-balanced text-sm"></i>
+              </div>
+              <h4 class="text-base font-bold text-white">Net Calorie Balance</h4>
+            </div>
+            <div class="text-center py-4">
+              <div class="text-4xl font-black font-mono" id="net-calorie-display">0</div>
+              <div class="text-xs text-slate-400 font-mono mt-1" id="net-calorie-label">calories remaining</div>
+              <div class="text-[10px] text-slate-500 mt-2" id="net-calorie-advice">Log food and activity to see your balance</div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mt-3 text-center text-[10px] font-mono">
+              <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                <div class="text-slate-400">Eaten</div>
+                <div class="text-rose-400 font-bold" id="net-eaten">0</div>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                <div class="text-slate-400">Exercise</div>
+                <div class="text-[#76e000] font-bold" id="net-exercise">0</div>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                <div class="text-slate-400">Net</div>
+                <div class="text-white font-bold" id="net-total">0</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
   </section>
 

@@ -151,6 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initRestTimer();
   initWaterTracker();
   initMobileMenu();
+  initCalorieTracker();
+  initStepCounter();
+  initRunningTracker();
   setupEventListeners();
 });
 
@@ -1736,4 +1739,477 @@ function showToast(message, type = "info") {
 
 function escapeHtml(str) {
   return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+}
+
+
+/* ==========================================================================
+   7. CALORIE TRACKER — Food Log, Macro Counter & Balance
+   ========================================================================== */
+
+const CALORIE_STORAGE_KEY = "fitaasu_food_log";
+const CALORIE_GOAL_KEY = "fitaasu_calorie_goal";
+
+function getTodayKey() {
+  return new Date().toISOString().split("T")[0];
+}
+
+function getFoodLog() {
+  const all = JSON.parse(localStorage.getItem(CALORIE_STORAGE_KEY) || "{}");
+  return all[getTodayKey()] || [];
+}
+
+function saveFoodLog(log) {
+  const all = JSON.parse(localStorage.getItem(CALORIE_STORAGE_KEY) || "{}");
+  all[getTodayKey()] = log;
+  localStorage.setItem(CALORIE_STORAGE_KEY, JSON.stringify(all));
+}
+
+function initCalorieTracker() {
+  const form = document.getElementById("food-log-form");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      addFoodFromForm();
+    });
+  }
+  renderFoodLog();
+  updateMacroBars();
+  updateNetCalories();
+}
+
+function addFoodFromForm() {
+  const name = document.getElementById("food-name").value.trim();
+  const calories = parseInt(document.getElementById("food-calories").value) || 0;
+  const protein = parseFloat(document.getElementById("food-protein").value) || 0;
+  const carbs = parseFloat(document.getElementById("food-carbs").value) || 0;
+  const fat = parseFloat(document.getElementById("food-fat").value) || 0;
+  const meal = document.getElementById("food-meal").value;
+
+  if (!name || calories <= 0) {
+    showToast("Please enter food name and calories.", "error");
+    return;
+  }
+
+  const entry = {
+    id: Date.now(),
+    name, calories, protein, carbs, fat, meal,
+    time: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })
+  };
+
+  const log = getFoodLog();
+  log.push(entry);
+  saveFoodLog(log);
+
+  // Reset form
+  document.getElementById("food-name").value = "";
+  document.getElementById("food-calories").value = "";
+  document.getElementById("food-protein").value = "";
+  document.getElementById("food-carbs").value = "";
+  document.getElementById("food-fat").value = "";
+
+  renderFoodLog();
+  updateMacroBars();
+  updateNetCalories();
+  SoundFX.playBeep(600, 0.1);
+  showToast(`${name} (${calories} kcal) logged ✓`, "success");
+}
+
+function quickAddFood(name, cal, protein, carbs, fat, meal) {
+  const entry = {
+    id: Date.now(),
+    name, calories: cal, protein, carbs, fat, meal,
+    time: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })
+  };
+  const log = getFoodLog();
+  log.push(entry);
+  saveFoodLog(log);
+  renderFoodLog();
+  updateMacroBars();
+  updateNetCalories();
+  SoundFX.playBeep(600, 0.1);
+  showToast(`${name} (${cal} kcal) added ✓`, "success");
+}
+
+function removeFoodEntry(id) {
+  let log = getFoodLog();
+  log = log.filter(e => e.id !== id);
+  saveFoodLog(log);
+  renderFoodLog();
+  updateMacroBars();
+  updateNetCalories();
+}
+
+function clearFoodLog() {
+  saveFoodLog([]);
+  renderFoodLog();
+  updateMacroBars();
+  updateNetCalories();
+  showToast("Food log cleared.", "info");
+}
+
+const MEAL_ICONS = {
+  breakfast: "🌅",
+  lunch: "☀️",
+  snack: "🍌",
+  dinner: "🌙",
+  "pre-workout": "💪",
+  "post-workout": "🏋️"
+};
+
+function renderFoodLog() {
+  const container = document.getElementById("food-log-list");
+  if (!container) return;
+
+  const log = getFoodLog();
+
+  if (log.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-6 text-slate-500 text-sm">
+        <i class="fa-solid fa-bowl-food text-2xl mb-2 block text-slate-600"></i>
+        No food logged yet today. Start adding meals above!
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = log.map(e => `
+    <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800/60 group hover:border-slate-700 transition-all">
+      <div class="flex items-center gap-3">
+        <span class="text-lg">${MEAL_ICONS[e.meal] || "🍽️"}</span>
+        <div>
+          <div class="text-sm font-semibold text-white">${e.name}</div>
+          <div class="text-[10px] text-slate-400 font-mono">${e.time} · ${e.meal.replace("-", " ")}</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="text-right">
+          <div class="text-sm font-bold text-rose-400">${e.calories} kcal</div>
+          <div class="text-[9px] font-mono text-slate-500">P:${e.protein}g C:${e.carbs}g F:${e.fat}g</div>
+        </div>
+        <button onclick="removeFoodEntry(${e.id})" class="opacity-0 group-hover:opacity-100 w-7 h-7 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 flex items-center justify-center transition-all" title="Remove">
+          <i class="fa-solid fa-xmark text-xs"></i>
+        </button>
+      </div>
+    </div>
+  `).join("");
+}
+
+function updateMacroBars() {
+  const log = getFoodLog();
+  const totals = log.reduce((acc, e) => {
+    acc.calories += e.calories;
+    acc.protein += e.protein;
+    acc.carbs += e.carbs;
+    acc.fat += e.fat;
+    return acc;
+  }, { calories: 0, protein: 0, carbs: 0, fat: 0 });
+
+  const calGoal = 2500, proGoal = 150, carbGoal = 300, fatGoal = 80;
+
+  // Update current values
+  const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = Math.round(val); };
+  setEl("macro-cal-current", totals.calories);
+  setEl("macro-pro-current", totals.protein);
+  setEl("macro-carb-current", totals.carbs);
+  setEl("macro-fat-current", totals.fat);
+  setEl("dash-calories-in", totals.calories);
+
+  // Update bars
+  const setBar = (id, current, goal) => {
+    const bar = document.getElementById(id);
+    if (bar) bar.style.width = Math.min((current / goal) * 100, 100) + "%";
+  };
+  setBar("macro-cal-bar", totals.calories, calGoal);
+  setBar("macro-pro-bar", totals.protein, proGoal);
+  setBar("macro-carb-bar", totals.carbs, carbGoal);
+  setBar("macro-fat-bar", totals.fat, fatGoal);
+}
+
+
+/* ==========================================================================
+   8. STEP COUNTER — Daily Step Tracker with Circular Progress
+   ========================================================================== */
+
+const STEP_STORAGE_KEY = "fitaasu_steps";
+const STEP_GOAL_STORAGE_KEY = "fitaasu_step_goal";
+
+function getStepData() {
+  const all = JSON.parse(localStorage.getItem(STEP_STORAGE_KEY) || "{}");
+  return all[getTodayKey()] || 0;
+}
+
+function saveStepData(steps) {
+  const all = JSON.parse(localStorage.getItem(STEP_STORAGE_KEY) || "{}");
+  all[getTodayKey()] = steps;
+  localStorage.setItem(STEP_STORAGE_KEY, JSON.stringify(all));
+}
+
+function getStepGoal() {
+  return parseInt(localStorage.getItem(STEP_GOAL_STORAGE_KEY) || "10000");
+}
+
+function initStepCounter() {
+  const goalSelect = document.getElementById("step-goal-select");
+  if (goalSelect) goalSelect.value = getStepGoal();
+  renderStepCounter();
+}
+
+function addSteps() {
+  const input = document.getElementById("step-input");
+  if (!input) return;
+  const steps = parseInt(input.value) || 0;
+  if (steps <= 0) { showToast("Enter a valid step count.", "error"); return; }
+
+  const current = getStepData() + steps;
+  saveStepData(current);
+  input.value = "";
+  renderStepCounter();
+  updateNetCalories();
+  SoundFX.playBeep(700, 0.08);
+  showToast(`+${steps.toLocaleString()} steps added! 🚶`, "success");
+}
+
+function addQuickSteps(amount) {
+  const current = getStepData() + amount;
+  saveStepData(current);
+  renderStepCounter();
+  updateNetCalories();
+  SoundFX.playBeep(700, 0.08);
+  showToast(`+${amount.toLocaleString()} steps added! 🚶`, "success");
+}
+
+function resetSteps() {
+  saveStepData(0);
+  renderStepCounter();
+  updateNetCalories();
+  showToast("Steps reset to 0.", "info");
+}
+
+function updateStepGoal() {
+  const goalSelect = document.getElementById("step-goal-select");
+  if (goalSelect) {
+    localStorage.setItem(STEP_GOAL_STORAGE_KEY, goalSelect.value);
+  }
+  renderStepCounter();
+}
+
+function renderStepCounter() {
+  const steps = getStepData();
+  const goal = getStepGoal();
+  const pct = Math.min((steps / goal) * 100, 100);
+  const caloriesBurned = Math.round(steps * 0.04); // ~0.04 cal/step average
+
+  // Circular ring
+  const ring = document.getElementById("step-progress-ring");
+  if (ring) {
+    const circumference = 264; // 2 * π * 42
+    const offset = circumference - (pct / 100) * circumference;
+    ring.style.strokeDashoffset = offset;
+    // Change color when goal met
+    ring.classList.toggle("stroke-emerald-400", pct >= 100);
+    ring.classList.toggle("stroke-cyan-400", pct < 100);
+  }
+
+  // Numbers
+  const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setEl("step-count-display", steps.toLocaleString());
+  setEl("step-pct-display", Math.round(pct) + "%");
+  setEl("step-calories-burned", caloriesBurned.toLocaleString());
+  setEl("dash-steps", steps.toLocaleString());
+  setEl("step-goal-label", `Goal: ${goal.toLocaleString()} steps`);
+
+  // Dashboard burned
+  updateDashCaloriesOut();
+}
+
+
+/* ==========================================================================
+   9. RUNNING TRACKER — Distance, Duration, Pace & Calorie Burn
+   ========================================================================== */
+
+const RUN_STORAGE_KEY = "fitaasu_runs";
+
+function getRunLog() {
+  const all = JSON.parse(localStorage.getItem(RUN_STORAGE_KEY) || "{}");
+  return all[getTodayKey()] || [];
+}
+
+function saveRunLog(log) {
+  const all = JSON.parse(localStorage.getItem(RUN_STORAGE_KEY) || "{}");
+  all[getTodayKey()] = log;
+  localStorage.setItem(RUN_STORAGE_KEY, JSON.stringify(all));
+}
+
+// MET values for different run types
+const RUN_MET = {
+  walk: 3.5,
+  easy: 7,
+  steady: 8.5,
+  tempo: 10,
+  intervals: 12,
+  long: 9
+};
+
+function initRunningTracker() {
+  const form = document.getElementById("run-log-form");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      addRunFromForm();
+    });
+  }
+  renderRunLog();
+}
+
+function addRunFromForm() {
+  const distance = parseFloat(document.getElementById("run-distance").value) || 0;
+  const duration = parseInt(document.getElementById("run-duration").value) || 0;
+  const type = document.getElementById("run-type").value;
+
+  if (distance <= 0 || duration <= 0) {
+    showToast("Enter distance and duration.", "error");
+    return;
+  }
+
+  const pace = duration / distance; // min/km
+  const bodyWeight = 70; // default kg
+  const met = RUN_MET[type] || 7;
+  const caloriesBurned = Math.round((met * bodyWeight * duration) / 60);
+
+  const entry = {
+    id: Date.now(),
+    distance, duration, type, pace: pace.toFixed(1), caloriesBurned,
+    time: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })
+  };
+
+  const log = getRunLog();
+  log.push(entry);
+  saveRunLog(log);
+
+  // Reset form
+  document.getElementById("run-distance").value = "";
+  document.getElementById("run-duration").value = "";
+
+  renderRunLog();
+  updateNetCalories();
+  SoundFX.playBeep(800, 0.15);
+  showToast(`Run logged: ${distance}km in ${duration}min — ${caloriesBurned} kcal burned 🔥`, "success");
+}
+
+function clearRunLog() {
+  saveRunLog([]);
+  renderRunLog();
+  updateNetCalories();
+  showToast("Run history cleared.", "info");
+}
+
+const RUN_TYPE_LABELS = {
+  walk: "🚶 Walk",
+  easy: "🏃 Easy",
+  steady: "🏃‍♂️ Steady",
+  tempo: "⚡ Tempo",
+  intervals: "🔥 Intervals",
+  long: "🛣️ Long"
+};
+
+function renderRunLog() {
+  const container = document.getElementById("run-log-list");
+  if (!container) return;
+
+  const log = getRunLog();
+
+  if (log.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-4 text-slate-500 text-xs">
+        <i class="fa-solid fa-person-running text-lg mb-1 block text-slate-600"></i>
+        No runs logged yet today.
+      </div>`;
+  } else {
+    container.innerHTML = log.map(e => `
+      <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/60">
+        <div>
+          <div class="text-sm font-semibold text-white">${e.distance} km — ${e.duration} min</div>
+          <div class="text-[10px] text-slate-400 font-mono">${RUN_TYPE_LABELS[e.type] || e.type} · Pace: ${e.pace} min/km · ${e.time}</div>
+        </div>
+        <div class="text-sm font-bold text-amber-400">${e.caloriesBurned} kcal</div>
+      </div>
+    `).join("");
+  }
+
+  // Update totals
+  const totalDistance = log.reduce((a, e) => a + e.distance, 0);
+  const totalCalories = log.reduce((a, e) => a + e.caloriesBurned, 0);
+
+  const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setEl("run-total-distance", totalDistance.toFixed(1));
+  setEl("run-calories-burned", totalCalories.toLocaleString());
+  setEl("dash-distance", totalDistance.toFixed(1));
+
+  updateDashCaloriesOut();
+}
+
+
+/* ==========================================================================
+   10. NET CALORIE BALANCE — Integrates Food, Steps & Running
+   ========================================================================== */
+
+function updateDashCaloriesOut() {
+  const steps = getStepData();
+  const stepCalories = Math.round(steps * 0.04);
+  const runLog = getRunLog();
+  const runCalories = runLog.reduce((a, e) => a + e.caloriesBurned, 0);
+  const totalBurned = stepCalories + runCalories;
+
+  const el = document.getElementById("dash-calories-out");
+  if (el) el.textContent = totalBurned.toLocaleString();
+
+  updateNetCalories();
+}
+
+function updateNetCalories() {
+  const foodLog = getFoodLog();
+  const caloriesIn = foodLog.reduce((a, e) => a + e.calories, 0);
+
+  const steps = getStepData();
+  const stepCalories = Math.round(steps * 0.04);
+  const runLog = getRunLog();
+  const runCalories = runLog.reduce((a, e) => a + e.caloriesBurned, 0);
+  const totalBurned = stepCalories + runCalories;
+
+  const calGoal = 2500;
+  const net = caloriesIn - totalBurned;
+  const remaining = calGoal - net;
+
+  const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  setEl("net-eaten", caloriesIn.toLocaleString());
+  setEl("net-exercise", totalBurned.toLocaleString());
+  setEl("net-total", net.toLocaleString());
+
+  const netDisplay = document.getElementById("net-calorie-display");
+  const netLabel = document.getElementById("net-calorie-label");
+  const netAdvice = document.getElementById("net-calorie-advice");
+
+  if (netDisplay) {
+    netDisplay.textContent = remaining.toLocaleString();
+    if (remaining > 0) {
+      netDisplay.className = "text-4xl font-black font-mono text-[#76e000]";
+    } else {
+      netDisplay.className = "text-4xl font-black font-mono text-rose-400";
+    }
+  }
+
+  if (netLabel) {
+    netLabel.textContent = remaining > 0 ? "calories remaining" : "calories OVER budget";
+  }
+
+  if (netAdvice) {
+    if (caloriesIn === 0 && totalBurned === 0) {
+      netAdvice.textContent = "Log food and activity to see your balance";
+    } else if (remaining > 500) {
+      netAdvice.textContent = "💪 You have room — eat a nutritious meal!";
+    } else if (remaining > 0) {
+      netAdvice.textContent = "🎯 Almost at your goal — finish strong!";
+    } else {
+      netAdvice.textContent = "🔥 You're over your calorie target for today.";
+    }
+  }
 }
